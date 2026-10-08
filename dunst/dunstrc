@@ -1,0 +1,20 @@
+[global]
+    font = Iosevka 14
+    frame_color = "#ef934d"
+    frame_width = 4
+    origin = top-right
+    offset = 24x24
+    gap_size = 16
+
+[urgency_low]
+    background = "#0f0f0f"
+    foreground = "#ffffff"
+
+[urgency_normal]
+    background = "#0f0f0f"
+    foreground = "#ffffff"
+
+[urgency_critical]
+    background = "#0f0f0f"
+    foreground = "#ffffff"
+    frame_color = "#ef934d"

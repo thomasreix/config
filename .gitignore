@@ -1,0 +1,11 @@
+# Ignore all files and subdirectories in ~/.config by default
+/*
+
+# Allow tracking only these specific configuration directories
+!/dunst/
+!/foot/
+!/hypr/
+!/neofetch/
+
+# Track this gitignore file itself
+!.gitignore

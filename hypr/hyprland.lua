@@ -94,18 +94,24 @@ hl.device({
 ---- KEYBINDINGS ----
 ---------------------
 local mainMod = "SUPER"
+local confMod = "ALT"
+
 
 hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(mainMod .. " + CTRL + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("steam"))
-hl.bind(mainMod .. " + ALT + G", hl.dsp.exec_cmd("geogebra"))
+hl.bind(mainMod .. " + CTRL + G", hl.dsp.exec_cmd("geogebra"))
 
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("librewolf"))
 
 
 
 function librewolf_flag()
+	if hl.get_active_window() == nil then
+		return "--new-window"
+	end
     local window = hl.get_active_window().class:lower()
     if window == "librewolf" then
         return "--new-tab"
@@ -115,9 +121,11 @@ end
 
 hl.bind(mainMod .. " + A", function()		  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://wiki.archlinux.org/title/Main_page")) end)
 hl.bind(mainMod .. " + SHIFT + A", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://aternos.org/servers/")) end)
-hl.bind(mainMod .. " + ALT + D", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.desmos.com/calculator")) end)
+hl.bind(mainMod .. " + D", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.desmos.com/calculator")) end)
+hl.bind(mainMod .. " + E", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.larousse.fr/")) end)
 hl.bind(mainMod .. " + G", function()  		  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://mail.google.com/mail/u/0/?hl=fr#inbox")) end)
 hl.bind(mainMod .. " + SHIFT + G", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://gemini.google.com/app")) end)
+hl.bind(mainMod .. " + CTRL + SHIFT + G", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.geogebra.org/classic")) end)
 hl.bind(mainMod .. " + L", function()   	  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://mon.lyceeconnecte.fr/timeline/timeline")) end)
 hl.bind(mainMod .. " + T", function()   	  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://aternos.org/servers/")) end)
 
@@ -125,20 +133,19 @@ hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("prismlauncher"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("prismlauncher -l modern"))
 hl.bind(mainMod .. " + Comma", hl.dsp.exec_cmd("prismlauncher -l ars-nouveau"))
 
-hl.bind(mainMod .. " + MOD1 + F", hl.dsp.exec_cmd("foot micro ~/.config/foot/foot.ini"))
-hl.bind(mainMod .. " + MOD1 + D", hl.dsp.exec_cmd("foot micro ~/.config/dunst/dunstrc"))
-hl.bind(mainMod .. " + MOD1 + H", hl.dsp.exec_cmd("foot micro ~/.config/hypr/hyprland.lua"))
-hl.bind(mainMod .. " + MOD1 + P", hl.dsp.exec_cmd("foot micro ~/.config/hypr/hyprpaper.conf"))
+hl.bind(mainMod .. " + " .. confMod .. " + F", hl.dsp.exec_cmd("foot micro ~/.config/foot/foot.ini"))
+hl.bind(mainMod .. " + " .. confMod .. " + D", hl.dsp.exec_cmd("foot micro ~/.config/dunst/dunstrc"))
+hl.bind(mainMod .. " + " .. confMod .. " + H", hl.dsp.exec_cmd("foot micro ~/.config/hypr/hyprland.lua"))
+hl.bind(mainMod .. " + " .. confMod .. " + P", hl.dsp.exec_cmd("foot micro ~/.config/hypr/hyprpaper.conf"))
 
-
-hl.bind(mainMod .. " + Backspace", hl.dsp.window.close())
+hl.bind(mainMod .. " + Backspace", hl.dsp.window.close("pkill"))
 hl.bind(mainMod .. " + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + up", hl.dsp.layout("togglesplit"))
 
-hl.bind(mainMod .. " + CONTROL + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + CONTROL + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + CONTROL + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + CONTROL + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + CTRL + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + CTRL + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + CTRL + down",  hl.dsp.focus({ direction = "down" }))
 
 for i = 1, 10 do
     local key = i % 10

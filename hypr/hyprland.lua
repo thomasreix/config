@@ -123,10 +123,12 @@ hl.bind(mainMod .. " + A", function()		  hl.dispatch(hl.dsp.exec_cmd("librewolf 
 hl.bind(mainMod .. " + SHIFT + A", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://aternos.org/servers/")) end)
 hl.bind(mainMod .. " + D", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.desmos.com/calculator")) end)
 hl.bind(mainMod .. " + E", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.larousse.fr/")) end)
+hl.bind(mainMod .. " + F", function()   hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://coupe.maths-olympiques.fr/")) end)
 hl.bind(mainMod .. " + G", function()  		  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://mail.google.com/mail/u/0/?hl=fr#inbox")) end)
 hl.bind(mainMod .. " + SHIFT + G", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://gemini.google.com/app")) end)
 hl.bind(mainMod .. " + CTRL + SHIFT + G", function() hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://www.geogebra.org/classic")) end)
 hl.bind(mainMod .. " + L", function()   	  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://mon.lyceeconnecte.fr/timeline/timeline")) end)
+hl.bind(mainMod .. " + P", function()   	  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://0332846p.index-education.net/pronote/eleve.html?identifiant=pVKMMhqMtE5grmTm")) end)
 hl.bind(mainMod .. " + T", function()   	  hl.dispatch(hl.dsp.exec_cmd("librewolf " .. librewolf_flag() .." https://aternos.org/servers/")) end)
 
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("prismlauncher"))
@@ -163,10 +165,9 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 local dir = "/home/beglary/screenshots/"
 local date_format = "$(date +%d-%m-%y_%H-%M-%S).png"
 
-hl.bind("Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m output -d " .. dir .. " -f " .. date_format .. "'"))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m window -d " .. dir .. " -f " .. date_format .. "'"))
-hl.bind("CONTROL + Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m region -d " .. dir .. " -f " .. date_format .. "'"))
-
+hl.bind("Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m output -f " .. dir .. date_format .. "'"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m window -f " .. dir .. date_format .. "'"))
+hl.bind("CONTROL + Print", hl.dsp.exec_cmd("sh -c 'mkdir -p " .. dir .. " && hyprshot -m region -f " .. dir .. date_format .. "'"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------

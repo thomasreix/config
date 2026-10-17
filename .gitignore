@@ -6,6 +6,7 @@
 !/foot/
 !/hypr/
 !/neofetch/
+!/yay/
 
 # Track this gitignore file itself
 !.gitignore

@@ -12,6 +12,10 @@ hl.config({
         layout = "master",
     },
 
+    master = {
+        orientation = "right",
+    },
+
     decoration = {
         rounding = 0,
         shadow = { enabled = false, },

@@ -8,7 +8,7 @@ hl.bind(mainMod.." + Grave",	 hl.dsp.exec_cmd("rofi"))
 
 hl.bind(mainMod.." + B", hl.dsp.exec_cmd("blender"))
 hl.bind(mainMod.." + D", hl.dsp.exec_cmd("vesktop"))
-hl.bind(mainMod.." + ALT + G", hl.dsp.exec_cmd("gimp"))
+hl.bind(mainMod.." + SHIFT + G", hl.dsp.exec_cmd("gimp"))
 hl.bind(mainMod.." + K", hl.dsp.exec_cmd("kdenlive"))
 hl.bind(mainMod.." + SHIFT + K", hl.dsp.exec_cmd("krita"))
 hl.bind(mainMod.." + SHIFT + M", hl.dsp.exec_cmd("prismlauncher"))
@@ -38,7 +38,7 @@ hl.bind(mainMod .. " + SHIFT + P", function()hl.dispatch(hl.dsp.exec_cmd("librew
 hl.bind(mainMod .. " + T", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://mail.tutanota.com/mail"))end)
 hl.bind(mainMod .. " + Y", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://www.youtube.com/"))end)
 
-hl.bind(mainMod.." + R", hl.dsp.exec_cmd("prismlauncher -l raph && librewolf " .. flag() .. " https://aternos.org/server/"))
+hl.bind(mainMod.." + R", function()hl.dispatch(hl.dsp.exec_cmd("prismlauncher -l raph && librewolf " .. flag() .. " https://aternos.org/server/"))end)
 
 for i = 1, 10 do
     local key = i % 10
@@ -68,3 +68,15 @@ hl.bind("Print", hl.dsp.exec_cmd([[grim "$HOME/screenshots/$(date +%d-%m-%y_%H-%
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd([[hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | grim -g - "$HOME/screenshots/$(date +%d-%m-%y_%H-%M-%S).png"]]))
 hl.bind("CTRL + Print",  hl.dsp.exec_cmd([[grim -g "$(slurp)" "$HOME/screenshots/$(date +%d-%m-%y_%H-%M-%S).png"]]))
 hl.bind("ALT + Print",   hl.dsp.exec_cmd([[grim -g "$(slurp)" - | tesseract stdin stdout 2>/dev/null | wl-copy]]))
+
+
+hl.bind("SUPER + F12", function()
+    local border_size = hl.get_config("general.border_size")
+
+    hl.config({
+        general = {
+            border_size = border_size == 0 and 4 or 0,
+            gaps_in = gaps_in == 0 and -2 or 0,
+        },
+    })
+end)

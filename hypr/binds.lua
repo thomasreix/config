@@ -35,6 +35,7 @@ hl.bind(mainMod .. " + ALT + G", function()hl.dispatch(hl.dsp.exec_cmd("librewol
 hl.bind(mainMod .. " + H", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://humanbenchmark.com/"))end)
 hl.bind(mainMod .. " + P", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://0332846p.index-education.net/pronote/eleve.html"))end)
 hl.bind(mainMod .. " + SHIFT + P", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. "https://mon.lyceeconnecte.fr/timeline/timeline"))end)
+hl.bind(mainMod .. " + SHIFT + V", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. "https://www.vidlii.com/"))end)
 hl.bind(mainMod .. " + T", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://mail.tutanota.com/mail"))end)
 hl.bind(mainMod .. " + Y", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://www.youtube.com/"))end)
 

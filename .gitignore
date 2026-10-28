@@ -7,6 +7,9 @@
 !/hypr/
 !/neofetch/
 !/yay/
+!/../.zim/
+!/../.zshrc
+!/../.zimrc
 
 # Track this gitignore file itself
 !.gitignore

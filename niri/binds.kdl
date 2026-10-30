@@ -1,7 +1,6 @@
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+F1 { quit; }
     Mod+F11 { fullscreen-window; }
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }

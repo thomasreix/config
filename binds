@@ -1,5 +1,6 @@
-browser = librewolf
 terminal = foot
+browser = librewolf
+minecraft = prismlauncher
 
 Super + A = https://wiki.archlinux.org/title/Main_page
 Super + Shift + A = https://aternos.org/server
@@ -15,9 +16,9 @@ Super + K = kdenlive
 Super + Shift + K = krita
 Super + L https://mon.lyceeconnecte.fr
 Super + Shift + L = https://www.google.com/android/find
-Super + M = prismlauncher
+Super + M = minecraft
 Super + P = https://0332846p.index-education.net/pronote/eleve.html
-Super + R = https://aternos.org/server && prismlauncher -l raph
+Super + R = https://aternos.org/server && minecraft -l raph
 Super + S = steam
 Super + T = https://mail.tutanota.com/mail
 Super + Shift + T = https://translate.google.com

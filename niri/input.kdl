@@ -1,8 +1,7 @@
 input {
     keyboard {
-        repeat-rate 100
+        repeat-rate 50
         repeat-delay 500
-
         numlock
     }
     focus-follows-mouse max-scroll-amount="0%"

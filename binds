@@ -1,5 +1,96 @@
-super + w = librewolf
-super + v = code
+browser = librewolf
+terminal = foot
 
-super + F1 = quit
-super + F12 = toggle-border
+Super + A = https://wiki.archlinux.org/title/Main_page
+Super + Shift + A = https://aternos.org/server
+Super + B = blender
+Super + C = https://chatgpt.com
+Super + D = vesktop
+Super + Shift + D = https://drive.google.com/drive
+Super + G = https://mail.google.com
+Super + Shift + G = gimp
+Super + Alt + G = https://github.com
+Super + H = https://humanbenchmark.com
+Super + K = kdenlive
+Super + Shift + K = krita
+Super + L https://mon.lyceeconnecte.fr
+Super + Shift + L = https://www.google.com/android/find
+Super + M = prismlauncher
+Super + P = https://0332846p.index-education.net/pronote/eleve.html
+Super + R = https://aternos.org/server && prismlauncher -l raph
+Super + S = steam
+Super + T = https://mail.tutanota.com/mail
+Super + Shift + T = https://translate.google.com
+Super + V = code
+Super + Shift + V = https://www.vidlii.com
+Super + W = librewolf
+Super + Y = https://www.youtube.com
+
+Super + Backspace = close
+Super + Grave = overview
+Super + Return = terminal
+
+Super + F1 = quit
+Super + F2 = sleep
+Super + F3 = restart
+Super + f4 = shutdown
+
+Super + F10 = resize
+Super + F11 = fullscreen
+Super + F12 = border
+
+Super + Right = window[-1]
+Super + Left = window[+1]
+Super + Up = workspace[-1]
+Super + Down = workspace[+1]
+
+Super + AltGr + Right = window[0]
+Super + AltGr + Left = window[!]
+Super + Ctrl + AltGr + Right = workspace[0]
+Super + Ctrl + AltGr + Left = workspace[!]
+
+Super + Shift + Right = move_window[+1]
+Super + Shift + Left = move_window[-1]
+Super + Shift + Up = move_window_to_workspace[+1]
+Super + Shift + Down = move_window_to_workspace[-1]
+Super + Ctrl + Right = move_workspace[+1]
+Super + Ctrl + Left = move_workspace[-1]
+Super + Ctrl + Up = move_workspace[+1]
+Super + Ctrl + Down = move_workspace[-1]
+
+Super + AltGr + Shift + Right = move_window[0]
+Super + AltGr + Shift + Left = move_window[!]
+Super + AltGr + Shift + Up = move_window_to_workspace[0]
+Super + AltGr + Shift + Down = move_window_to_workspace[!]
+Super + Ctrl + AltGr + Right = move_workspace[0]
+Super + Ctrl + AltGr + Left = move_workspace[!]
+Super + Ctrl + AltGr + Up = move_workspace[0]
+Super + Ctrl + AltGr + Down = move_workspace[!]
+
+Super + 1 = workspace[0]
+Super + 2 = workspace[1]
+Super + 3 = workspace[2]
+Super + 4 = workspace[3]
+Super + 5 = workspace[4]
+Super + 6 = workspace[5]
+Super + 7 = workspace[6]
+Super + 8 = workspace[7]
+Super + 9 = workspace[8]
+Super + 0 = workspace[9]
+
+Super + Shift + 1 = move_window_to_workspace[0]
+Super + Shift + 2 = move_window_to_workspace[1]
+Super + Shift + 3 = move_window_to_workspace[2]
+Super + Shift + 4 = move_window_to_workspace[3]
+Super + Shift + 5 = move_window_to_workspace[4]
+Super + Shift + 6 = move_window_to_workspace[5]
+Super + Shift + 7 = move_window_to_workspace[6]
+Super + Shift + 8 = move_window_to_workspace[7]
+Super + Shift + 9 = move_window_to_workspace[8]
+Super + Shift + 0 = move_window_to_workspace[9]
+
+Print = screenshot-screen
+Shift + Print = screenshot-window
+Ctrl + Print = screenshot-selection
+Alt + Print = screenshot-text
+

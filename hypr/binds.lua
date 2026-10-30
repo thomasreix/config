@@ -4,6 +4,7 @@ hl.bind(mainMod.." + F1",	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>
 hl.bind(mainMod.." + Return",	 hl.dsp.exec_cmd("foot"))
 hl.bind(mainMod.." + Backspace", hl.dsp.window.close())
 hl.bind(mainMod.." + Space",	 hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + F11", hl.dsp.window.fullscreen())
 hl.bind(mainMod.." + Grave",	 hl.dsp.exec_cmd("rofi"))
 
 hl.bind(mainMod.." + B", hl.dsp.exec_cmd("blender"))
@@ -29,17 +30,20 @@ end
 hl.bind(mainMod .. " + A", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://wiki.archlinux.org/title/Main_page"))end)
 hl.bind(mainMod .. " + SHIFT + A", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://aternos.org/server/"))end)
 hl.bind(mainMod .. " + C", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://chatgpt.com/"))end)
+hl.bind(mainMod .. " + SHIFT + D", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://drive.google.com/drive/u/0/home"))end)
 hl.bind(mainMod .. " + F", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://coupe.maths-olympiques.fr/"))end)
 hl.bind(mainMod .. " + G", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://mail.google.com/"))end)
 hl.bind(mainMod .. " + ALT + G", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://github.com/"))end)
 hl.bind(mainMod .. " + H", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://humanbenchmark.com/"))end)
+hl.bind(mainMod .. " + CTRL + L", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://www.google.com/android/find/"))end)
 hl.bind(mainMod .. " + P", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://0332846p.index-education.net/pronote/eleve.html"))end)
 hl.bind(mainMod .. " + SHIFT + P", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. "https://mon.lyceeconnecte.fr/timeline/timeline"))end)
 hl.bind(mainMod .. " + SHIFT + V", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. "https://www.vidlii.com/"))end)
 hl.bind(mainMod .. " + T", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://mail.tutanota.com/mail"))end)
+hl.bind(mainMod .. " + ALT + T", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://translate.google.com/"))end)
 hl.bind(mainMod .. " + Y", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://www.youtube.com/"))end)
 
-hl.bind(mainMod.." + R", function()hl.dispatch(hl.dsp.exec_cmd("prismlauncher -l raph && librewolf " .. flag() .. " https://aternos.org/server/"))end)
+hl.bind(mainMod.." + R", function()hl.dispatch(hl.dsp.exec_cmd("librewolf " .. flag() .. " https://aternos.org/server/ && prismlauncher -l raph"))end)
 
 for i = 1, 10 do
     local key = i % 10

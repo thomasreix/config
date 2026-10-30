@@ -1,0 +1,14 @@
+prefer-no-csd
+
+layout {
+    gaps 4
+    center-focused-column "never"
+    default-column-width { proportion 0.5; }
+
+
+    focus-ring {
+        width 4
+        active-color "#ef934d"
+        inactive-color "#0f0f0f"
+    }
+}

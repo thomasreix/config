@@ -1,0 +1,5 @@
+super + w = librewolf
+super + v = code
+
+super + F1 = quit
+super + F12 = toggle-border

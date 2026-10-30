@@ -6,8 +6,11 @@
 !/foot/
 !/hypr/
 !/neofetch/
+!/niri/
 !/yay/
 !/zsh/
+!/binds
+!/scheme
 
 # Track this gitignore file itself
 !.gitignore

@@ -39,31 +39,33 @@ Super + F10 = resize
 Super + F11 = fullscreen
 Super + F12 = border
 
-Super + Right = window[-1]
-Super + Left = window[+1]
+Super + Right = window[+1]
+Super + Left = window[-1]
 Super + Up = workspace[-1]
 Super + Down = workspace[+1]
+Super + ScrollUp = window[+1]
+Super + ScrollDown = window[-1]
 
 Super + AltGr + Right = window[0]
 Super + AltGr + Left = window[!]
-Super + Ctrl + AltGr + Right = workspace[0]
-Super + Ctrl + AltGr + Left = workspace[!]
+Super + Ctrl + AltGr + Right = workspace[!]
+Super + Ctrl + AltGr + Left = workspace[0]
 
 Super + Shift + Right = move_window[+1]
 Super + Shift + Left = move_window[-1]
-Super + Shift + Up = move_window_to_workspace[+1]
-Super + Shift + Down = move_window_to_workspace[-1]
+Super + Shift + Up = move_window_to_workspace[-1]
+Super + Shift + Down = move_window_to_workspace[+1]
 Super + Ctrl + Right = move_workspace[+1]
 Super + Ctrl + Left = move_workspace[-1]
 Super + Ctrl + Up = move_workspace[+1]
 Super + Ctrl + Down = move_workspace[-1]
 
-Super + AltGr + Shift + Right = move_window[0]
-Super + AltGr + Shift + Left = move_window[!]
+Super + AltGr + Shift + Right = move_window[!]
+Super + AltGr + Shift + Left = move_window[0]
 Super + AltGr + Shift + Up = move_window_to_workspace[0]
 Super + AltGr + Shift + Down = move_window_to_workspace[!]
-Super + Ctrl + AltGr + Right = move_workspace[0]
-Super + Ctrl + AltGr + Left = move_workspace[!]
+Super + Ctrl + AltGr + Right = move_workspace[!]
+Super + Ctrl + AltGr + Left = move_workspace[0]
 Super + Ctrl + AltGr + Up = move_workspace[0]
 Super + Ctrl + AltGr + Down = move_workspace[!]
 

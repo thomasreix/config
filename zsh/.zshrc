@@ -55,6 +55,7 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/commands.zsh
 
 ZSH_HIGHLIGHT_STYLES[path]='none'
 

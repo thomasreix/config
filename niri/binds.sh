@@ -66,8 +66,13 @@ function is_website() {
 function parse_command() {
     local command=$1
     local -A commands=(
+        ["border"]
         ["close-window"]="close-window"
         ["fullscreen"]="fullscreen-window"
+        ["move-window-first"]="move-column-to-first"
+        ["move-window-last"]="move-column-to-last"
+        ["move-window-next"]="move-column-right"
+        ["move-window-prev"]="move-column-left"
         ["move-window-to-workspace-0"]="move-column-to-workspace 1"
         ["move-window-to-workspace-1"]="move-column-to-workspace 2"
         ["move-window-to-workspace-2"]="move-column-to-workspace 3"
@@ -78,10 +83,23 @@ function parse_command() {
         ["move-window-to-workspace-7"]="move-column-to-workspace 8"
         ["move-window-to-workspace-8"]="move-column-to-workspace 9"
         ["move-window-to-workspace-9"]="move-column-to-workspace 10"
+        ["move-window-to-workspace-next"]="move-column-to-workspace-down"
+        ["move-window-to-workspace-prev"]="move-column-to-workspace-up"
+        ["move-workspace-next"]="move-workspace-down"
+        ["move-workspace-prev"]="move-workspace-up"
         ["overview"]="toggle-overview"
         ["quit"]="quit"
+        ["restart"]="sleep 10"
+        ["resize"]="reset-window-height"
         ["sleep"]="power-off-monitors"
+        ["shutdown"]="sleep 10"
+        ["screenshot-screen"]="notify-send \"screenshot\""
+        ["screenshot-window"]="notify-send \"screenshot\""
+        ["screenshot-selection"]="notify-send \"screenshot\""
+        ["screenshot-text"]="notify-send \"screenshot\""
         ["terminal"]="$(parse_value "$configuration" "terminal")"
+        ["window-first"]="focus-column-first"
+        ["window-last"]="focus-column-last"
         ["window-next"]="focus-column-right"
         ["window-prev"]="focus-column-left"
         ["workspace-0"]="focus-workspace 1"
@@ -94,6 +112,8 @@ function parse_command() {
         ["workspace-7"]="focus-workspace 8"
         ["workspace-8"]="focus-workspace 9"
         ["workspace-9"]="focus-workspace 10"
+        ["workspace-first"]
+        ["workspace-last"]
         ["workspace-next"]="focus-workspace-down"
         ["workspace-prev"]="focus-workspace-up"
     )

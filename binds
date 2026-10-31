@@ -55,15 +55,11 @@ Super + Shift + Right = move-window-next
 Super + Shift + Left = move-window-prev
 Super + Shift + Up = move-window-to-workspace-prev
 Super + Shift + Down = move-window-to-workspace-next
-Super + Ctrl + Right = move-workspace-next
-Super + Ctrl + Left = move-workspace-prev
 Super + Ctrl + Up = move-workspace-next
 Super + Ctrl + Down = move-workspace-prev
 
 Super + AltGr + Shift + Right = move-window-last
 Super + AltGr + Shift + Left = move-window-first
-Super + AltGr + Shift + Up = move_window-to-workspace-first
-Super + AltGr + Shift + Down = move-window-to-workspace-last
 Super + Ctrl + AltGr + Right = move-workspace-last
 Super + Ctrl + AltGr + Left = move-workspace-first
 Super + Ctrl + AltGr + Up = move-workspace-first

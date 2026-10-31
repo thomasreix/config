@@ -1,1 +1,49 @@
 binds {
+    Super+A { spawn-sh "librewolf-open" "https://wiki.archlinux.org/title/Main_page" }
+    Super+Shift+A { spawn-sh "librewolf-open" "https://aternos.org/server" }
+    Super+B { spawn "blender" }
+    Super+C { spawn-sh "librewolf-open" "https://chatgpt.com" }
+    Super+D { spawn "vesktop" }
+    Super+Shift+D { spawn-sh "librewolf-open" "https://drive.google.com/drive" }
+    Super+G { spawn-sh "librewolf-open" "https://mail.google.com" }
+    Super+Shift+G { spawn "gimp" }
+    Super+Alt+G { spawn-sh "librewolf-open" "https://github.com" }
+    Super+H { spawn-sh "librewolf-open" "https://humanbenchmark.com" }
+    Super+K { spawn "kdenlive" }
+    Super+Shift+K { spawn "krita" }
+    Super+L
+    Super+Shift+L { spawn-sh "librewolf-open" "https://www.google.com/android/find" }
+    Super+M { spawn "prismlauncher" }
+    Super+P { spawn-sh "librewolf-open" "https://0332846p.index-education.net/pronote/eleve.html" }
+    Super+R { spawn-sh "librewolf-open" "https://aternos.org/server" }
+    Super+S { spawn "steam" }
+    Super+T { spawn-sh "librewolf-open" "https://mail.tutanota.com/mail" }
+    Super+Shift+T { spawn-sh "librewolf-open" "https://translate.google.com" }
+    Super+V { spawn "code" }
+    Super+Shift+V { spawn-sh "librewolf-open" "https://www.vidlii.com" }
+    Super+W { spawn "librewolf" }
+    Super+Y { spawn-sh "librewolf-open" "https://www.youtube.com" }
+    Super+Backspace { spawn "close" }
+    Super+Grave { spawn "overview" }
+    Super+Return { spawn "terminal" }
+    Super+Super+Super+Super+Super+Super+Super+Super+Super+Super+Super+Super+Super+Super+Mod5+Super+Mod5+Super+Ctrl+Mod5+Super+Ctrl+Mod5+Super+Shift+Super+Shift+Super+Shift+Super+Shift+Super+Ctrl+Super+Ctrl+Super+Ctrl+Super+Ctrl+Super+Mod5+Shift+Super+Mod5+Shift+Super+Mod5+Shift+Super+Mod5+Shift+Super+Ctrl+Mod5+Super+Ctrl+Mod5+Super+Ctrl+Mod5+Super+Ctrl+Mod5+Super+1 { spawn "workspace[0]" }
+    Super+2 { spawn "workspace[1]" }
+    Super+3 { spawn "workspace[2]" }
+    Super+4 { spawn "workspace[3]" }
+    Super+5 { spawn "workspace[4]" }
+    Super+6 { spawn "workspace[5]" }
+    Super+7 { spawn "workspace[6]" }
+    Super+8 { spawn "workspace[7]" }
+    Super+9 { spawn "workspace[8]" }
+    Super+0 { spawn "workspace[9]" }
+    Super+Shift+1 { spawn "move-window-to-workspace[0]" }
+    Super+Shift+2 { spawn "move-window-to-workspace[1]" }
+    Super+Shift+3 { spawn "move-window-to-workspace[2]" }
+    Super+Shift+4 { spawn "move-window-to-workspace[3]" }
+    Super+Shift+5 { spawn "move-window-to-workspace[4]" }
+    Super+Shift+6 { spawn "move-window-to-workspace[5]" }
+    Super+Shift+7 { spawn "move-window-to-workspace[6]" }
+    Super+Shift+8 { spawn "move-window-to-workspace[7]" }
+    Super+Shift+9 { spawn "move-window-to-workspace[8]" }
+    Super+Shift+0 { spawn "move-window-to-workspace[9]" }
+}

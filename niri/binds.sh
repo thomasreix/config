@@ -54,10 +54,64 @@ function parse_value() {
     done
 }
 
+function is_website() {
+    link=$1
+    https="${link:0:5}"
+    if [[ "$https" == "https" ]]; then
+        return 0
+    fi
+    return 1
+}
+
+function parse_command() {
+    local command=$1
+    local -A commands=(
+        ["close-window"]="close-window"
+        ["fullscreen"]="fullscreen-window"
+        ["move-window-to-workspace-0"]="move-column-to-workspace 1"
+        ["move-window-to-workspace-1"]="move-column-to-workspace 2"
+        ["move-window-to-workspace-2"]="move-column-to-workspace 3"
+        ["move-window-to-workspace-3"]="move-column-to-workspace 4"
+        ["move-window-to-workspace-4"]="move-column-to-workspace 5"
+        ["move-window-to-workspace-5"]="move-column-to-workspace 6"
+        ["move-window-to-workspace-6"]="move-column-to-workspace 7"
+        ["move-window-to-workspace-7"]="move-column-to-workspace 8"
+        ["move-window-to-workspace-8"]="move-column-to-workspace 9"
+        ["move-window-to-workspace-9"]="move-column-to-workspace 10"
+        ["overview"]="toggle-overview"
+        ["quit"]="quit"
+        ["sleep"]="power-off-monitors"
+        ["terminal"]="$(parse_value "$configuration" "terminal")"
+        ["window-next"]="focus-column-right"
+        ["window-prev"]="focus-column-left"
+        ["workspace-0"]="focus-workspace 1"
+        ["workspace-1"]="focus-workspace 2"
+        ["workspace-2"]="focus-workspace 3"
+        ["workspace-3"]="focus-workspace 4"
+        ["workspace-4"]="focus-workspace 5"
+        ["workspace-5"]="focus-workspace 6"
+        ["workspace-6"]="focus-workspace 7"
+        ["workspace-7"]="focus-workspace 8"
+        ["workspace-8"]="focus-workspace 9"
+        ["workspace-9"]="focus-workspace 10"
+        ["workspace-next"]="focus-workspace-down"
+        ["workspace-prev"]="focus-workspace-up"
+    )
+    if is_website command; then
+        command=" { spawn-sh \"librewolf-open\" \""$command"\"; }"
+    elif [[ ${commands[$command]+exists} ]]
+        command=${commands[$command]}
+        command=" { "$command"; }"
+    else
+        command=" { spawn "$command"; }"
+    fi
+    echo "$command"
+}
+
+
 function parse_bind() {
     local configuration=$1
     local objective=$2
-
     local -A keys=( 
         ["0"]="0"
         ["1"]="1"
@@ -77,9 +131,22 @@ function parse_bind() {
         ["C"]="C"
         ["Ctrl"]="Ctrl"
         ["D"]="D"
+        ["Down"]="Down"
         ["E"]="E"
         ["Enter"]="Return"
         ["F"]="F"
+        ["F1"]="F1"
+        ["F2"]="F2"
+        ["F3"]="F3"
+        ["F4"]="F4"
+        ["F5"]="F5"
+        ["F6"]="F6"
+        ["F7"]="F7"
+        ["F8"]="F8"
+        ["F9"]="F9"
+        ["F10"]="F10"
+        ["F11"]="F11"
+        ["F12"]="F12"
         ["G"]="G"
         ["Grave"]="Grave"
         ["H"]="H"
@@ -87,6 +154,7 @@ function parse_bind() {
         ["J"]="J"
         ["K"]="K"
         ["L"]="L"
+        ["Left"]="Left"
         ["M"]="M"
         ["N"]="N"
         ["O"]="O"
@@ -94,10 +162,13 @@ function parse_bind() {
         ["Q"]="Q"
         ["R"]="R"
         ["S"]="S"
+        ["ScrollDown"]="WheelScrollDown"
+        ["ScrollUp"]="WheelScrollUp"
         ["Shift"]="Shift"
         ["Super"]="Super"
         ["T"]="T"
         ["U"]="U"
+        ["Up"]="Up"
         ["V"]="V"
         ["W"]="W"
         ["X"]="X"
@@ -107,33 +178,50 @@ function parse_bind() {
     local i=0
     local current_word
     local position=0
-    local value
+    local operator=""
+    local bind="    "
     while (( i < ${#configuration} )); do
         current_word=$(parse_word "$configuration" "$i")
         if [[ -z $current_word ]]; then
             break
         fi
-        if [[ $current_word == "$word" ]]; then
-            value=$(parse_word "$configuration" "$((i + 2))")
-            echo "$value"
-            return
+        if [[ ${keys[$current_word]+exists} ]]; then
+            local key=${keys[$current_word]}
+            bind+="$key"
+            ((++i))
+            operator=$(parse_word "$configuration" "$i")
+            if [[ "$operator" == "+" ]]; then
+                bind+="+"
+            else
+                if [[ $position == $objective ]]; then
+                    break
+                else
+                    ((++position))
+                    local bind="    "
+                fi
+            fi
         fi
         ((++i))
     done
-
+    local command=""
+    if [[ "$operator" == "=" ]]; then
+        ((++i))
+        command=$(parse_word "$configuration" "$i")
+        command=$(parse_command "$command")
+        bind+="$command"
+    fi
+    echo "$bind"
 }
 
 configuration=$(cat "$SOURCE")
 
-terminal=$(parse_value "$configuration" "terminal")
-browser=$(parse_value "$configuration" "browser")
-minecraft=$(parse_value "$configuration" "minecraft")
-
-echo "$terminal"
-echo "$browser"
-echo "$minecraft"
-
-echo $(parse_word "$configuration" 13)
-
-
 echo "binds {" > $OUTPUT
+echo "binds {"
+
+for ((i = 0; i < ${#configuration}; i++)); do
+    bind=$(parse_bind "$configuration" $i)
+    echo "$bind" >> $OUTPUT
+    echo "$bind"
+done
+echo "}" >> "$OUTPUT"
+echo "}"

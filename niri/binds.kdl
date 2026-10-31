@@ -16,7 +16,7 @@ binds {
     Super+M { spawn "prismlauncher"; }
     Super+P { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://0332846p.index-education.net/pronote/eleve.html"; }
     Super+R { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://aternos.org/server && prismlauncher -l raph"; }
-    Super+S { spawn "steam"; }
+    Super+S { spawn steam; }
     Super+T { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://mail.tutanota.com/mail"; }
     Super+Shift+T { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://translate.google.com"; }
     Super+V { spawn "code"; }

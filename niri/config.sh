@@ -3,7 +3,40 @@ set -euo pipefail
 
 CONFIG="$HOME/.config"
 SOURCE="$CONFIG/binds"
-OUTPUT="$CONFIG/niri/binds2.kdl"
+OUTPUT="$CONFIG/niri/binds.kdl"
+
+HELPER="$HOME/.local/bin/librewolf-open"
+
+mkdir -p "$HOME/.local/bin"
+
+cat > "$HELPER" <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+
+url=$1
+
+app_id=$(
+    niri msg --json focused-window 2>/dev/null |
+        python3 -c '
+import json
+import sys
+
+try:
+    data = json.load(sys.stdin)
+    print(data.get("app_id") or "")
+except (json.JSONDecodeError, AttributeError, TypeError):
+    print("")
+'
+) || app_id=""
+
+if [[ "${app_id,,}" == *librewolf* ]]; then
+    exec librewolf --new-tab "$url"
+else
+    exec librewolf --new-window "$url"
+fi
+EOF
+
+chmod +x "$HELPER"
 
 function parse_word() {
     local configuration=$1
@@ -66,7 +99,7 @@ function is_website() {
 function parse_command() {
     local command=$1
     local -A commands=(
-        ["border"]
+        ["border"]=""
         ["close-window"]="close-window"
         ["fullscreen"]="fullscreen-window"
         ["move-window-first"]="move-column-to-first"
@@ -89,15 +122,14 @@ function parse_command() {
         ["move-workspace-prev"]="move-workspace-up"
         ["overview"]="toggle-overview"
         ["quit"]="quit"
-        ["restart"]="sleep 10"
         ["resize"]="reset-window-height"
+        ["restart"]="spawn \"systemctl\" \"reboot\""
+        ["screenshot-screen"]="screenshot-screen"
+        ["screenshot-window"]="screenshot-window"
+        ["screenshot-selection"]='spawn-sh "geometry=\"$(slurp)\" && [ -n \"$geometry\" ] && { mkdir -p \"$HOME/screenshots\"; grim -g \"$geometry\" - | tee \"$HOME/screenshots/$(date +%d-%m-%y_%H-%M-%S).png\" | wl-copy --type image/png; }"'
+        ["screenshot-text"]='spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout 2>/dev/null | wl-copy"'
         ["sleep"]="power-off-monitors"
-        ["shutdown"]="sleep 10"
-        ["screenshot-screen"]="notify-send \"screenshot\""
-        ["screenshot-window"]="notify-send \"screenshot\""
-        ["screenshot-selection"]="notify-send \"screenshot\""
-        ["screenshot-text"]="notify-send \"screenshot\""
-        ["terminal"]="$(parse_value "$configuration" "terminal")"
+        ["shutdown"]="spawn \"systemctl\" \"poweroff\""
         ["window-first"]="focus-column-first"
         ["window-last"]="focus-column-last"
         ["window-next"]="focus-column-right"
@@ -112,26 +144,22 @@ function parse_command() {
         ["workspace-7"]="focus-workspace 8"
         ["workspace-8"]="focus-workspace 9"
         ["workspace-9"]="focus-workspace 10"
-        ["workspace-first"]
-        ["workspace-last"]
         ["workspace-next"]="focus-workspace-down"
         ["workspace-prev"]="focus-workspace-up"
     )
-    if is_website command; then
-        command=" { spawn-sh \"librewolf-open\" \""$command"\"; }"
-    elif [[ ${commands[$command]+exists} ]]
-        command=${commands[$command]}
+    if is_website "$command"; then
+        command=" { spawn \"~/.local/bin/librewolf-open\" \"$command\"; }"
+    elif [[ ${commands["$command"]+exists} ]]; then
+        command=${commands["$command"]}
         command=" { "$command"; }"
     else
-        command=" { spawn "$command"; }"
+        command=" { spawn \""$command"\"; }"
     fi
     echo "$command"
 }
 
-
-function parse_bind() {
-    local configuration=$1
-    local objective=$2
+function parse_key() {
+    local key=$1
     local -A keys=( 
         ["0"]="0"
         ["1"]="1"
@@ -179,8 +207,10 @@ function parse_bind() {
         ["N"]="N"
         ["O"]="O"
         ["P"]="P"
+        ["Print"]="Print"
         ["Q"]="Q"
         ["R"]="R"
+        ["Right"]="Right"
         ["S"]="S"
         ["ScrollDown"]="WheelScrollDown"
         ["ScrollUp"]="WheelScrollUp"
@@ -195,53 +225,64 @@ function parse_bind() {
         ["Y"]="Y"
         ["Z"]="Z"
     )
-    local i=0
-    local current_word
-    local position=0
-    local operator=""
-    local bind="    "
-    while (( i < ${#configuration} )); do
-        current_word=$(parse_word "$configuration" "$i")
-        if [[ -z $current_word ]]; then
-            break
-        fi
-        if [[ ${keys[$current_word]+exists} ]]; then
-            local key=${keys[$current_word]}
-            bind+="$key"
-            ((++i))
-            operator=$(parse_word "$configuration" "$i")
-            if [[ "$operator" == "+" ]]; then
-                bind+="+"
-            else
-                if [[ $position == $objective ]]; then
-                    break
-                else
-                    ((++position))
-                    local bind="    "
-                fi
-            fi
-        fi
-        ((++i))
-    done
-    local command=""
-    if [[ "$operator" == "=" ]]; then
-        ((++i))
-        command=$(parse_word "$configuration" "$i")
-        command=$(parse_command "$command")
-        bind+="$command"
+    if [[ ${keys[$key]+exists} ]]; then
+        echo "${keys[$key]}"
+    else
+        echo "$key"
     fi
-    echo "$bind"
 }
+
 
 configuration=$(cat "$SOURCE")
 
 echo "binds {" > $OUTPUT
 echo "binds {"
 
-for ((i = 0; i < ${#configuration}; i++)); do
-    bind=$(parse_bind "$configuration" $i)
-    echo "$bind" >> $OUTPUT
+mapfile -t binding_lines < "$SOURCE"
+
+for line in "${binding_lines[@]}"; do
+    [[ $line == *=* ]] || continue
+
+    current_word=$(parse_word "$line" 0)
+
+    case "$current_word" in
+        terminal|browser|"")
+            continue
+            ;;
+    esac
+
+    i=0
+    bind="    "
+
+    while true; do
+        current_word=$(parse_word "$line" "$i")
+        [[ -z $current_word ]] && break
+
+        case "$current_word" in
+            "+")
+                bind+="+"
+                ;;
+            "=")
+                ((++i))
+                command=$(parse_word "$line" "$i")
+                command=$(parse_command "$command")
+                bind+="$command"
+                break
+                ;;
+            *)
+                key=$(parse_key "$current_word")
+                bind+="$key"
+                ;;
+        esac
+
+        ((++i))
+    done
+
+    echo "$bind" >> "$OUTPUT"
     echo "$bind"
 done
+
 echo "}" >> "$OUTPUT"
 echo "}"
+echo
+niri validate

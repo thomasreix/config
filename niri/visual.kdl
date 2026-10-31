@@ -1,14 +1,21 @@
 prefer-no-csd
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 layout {
-    gaps 4
+    gaps 0
     center-focused-column "never"
     default-column-width { proportion 0.5; }
-
+    background-color "#0f0f0f"
 
     focus-ring {
-        width 4
+        width 0
         active-color "#ef934d"
         inactive-color "#0f0f0f"
+    }
+    insert-hint {
+        off
     }
 }

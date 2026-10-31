@@ -4,5 +4,4 @@ input {
         repeat-delay 500
         numlock
     }
-    focus-follows-mouse max-scroll-amount="0%"
 }

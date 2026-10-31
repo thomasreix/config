@@ -1,62 +1,55 @@
 binds {
-    Super+A { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://wiki.archlinux.org/title/Main_page"; }
-    Super+Shift+A { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://aternos.org/server"; }
+    Super+A { spawn "~/.local/bin/librewolf-open" "https://wiki.archlinux.org/title/Main_page"; }
+    Super+Shift+A { spawn "~/.local/bin/librewolf-open" "https://aternos.org/server"; }
+    Super+Alt+A { spawn "~/.local/bin/librewolf-open" "https://coupe.maths-olympiques.fr/"; }
     Super+B { spawn "blender"; }
-    Super+C { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://chatgpt.com"; }
+    Super+C { spawn "~/.local/bin/librewolf-open" "https://chatgpt.com"; }
     Super+D { spawn "vesktop"; }
-    Super+Shift+D { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://drive.google.com/drive"; }
-    Super+G { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://mail.google.com"; }
+    Super+Shift+D { spawn "~/.local/bin/librewolf-open" "https://drive.google.com/drive"; }
+    Super+G { spawn "~/.local/bin/librewolf-open" "https://mail.google.com"; }
     Super+Shift+G { spawn "gimp"; }
-    Super+Alt+G { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://github.com"; }
-    Super+H { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://humanbenchmark.com"; }
+    Super+Alt+G { spawn "~/.local/bin/librewolf-open" "https://github.com"; }
+    Super+H { spawn "~/.local/bin/librewolf-open" "https://humanbenchmark.com"; }
     Super+K { spawn "kdenlive"; }
     Super+Shift+K { spawn "krita"; }
-    Super+L { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://mon.lyceeconnecte.fr"; }
-    Super+Shift+L { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://www.google.com/android/find"; }
+    Super+L { spawn "~/.local/bin/librewolf-open" "https://mon.lyceeconnecte.fr"; }
+    Super+Shift+L { spawn "~/.local/bin/librewolf-open" "https://www.google.com/android/find"; }
     Super+M { spawn "prismlauncher"; }
-    Super+P { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://0332846p.index-education.net/pronote/eleve.html"; }
-    Super+R { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://aternos.org/server && prismlauncher -l raph"; }
-    Super+S { spawn steam; }
-    Super+T { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://mail.tutanota.com/mail"; }
-    Super+Shift+T { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://translate.google.com"; }
+    Super+Alt+M { spawn "~/.local/bin/librewolf-open" "https://www.google.com/maps"; }
+    Super+P { spawn "~/.local/bin/librewolf-open" "https://0332846p.index-education.net/pronote/eleve.html"; }
+    Super+R { spawn "~/.local/bin/librewolf-open" "https://aternos.org/server"; }
+    Super+S { spawn "steam"; }
+    Super+T { spawn "~/.local/bin/librewolf-open" "https://mail.tutanota.com/mail"; }
+    Super+Shift+T { spawn "~/.local/bin/librewolf-open" "https://translate.google.com"; }
     Super+V { spawn "code"; }
-    Super+Shift+V { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://www.vidlii.com"; }
+    Super+Shift+V { spawn "~/.local/bin/librewolf-open" "https://www.vidlii.com"; }
     Super+W { spawn "librewolf"; }
-    Super+Y { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://www.youtube.com"; }
-    Super+BackSpace { close-window; }
+    Super+Y { spawn "~/.local/bin/librewolf-open" "https://www.youtube.com"; }
+    Super+Backspace { close-window; }
     Super+Grave { toggle-overview; }
     Super+Return { spawn "foot"; }
-    Super+F1 { quit skip-confirmation=true; }
-    Super+F2 { spawn "systemctl" "suspend"; }
+    Super+F1 { quit; }
+    Super+F2 { power-off-monitors; }
     Super+F3 { spawn "systemctl" "reboot"; }
-    Super+F4 { spawn "systemctl" "poweroff"; }
-    Super+F10 { switch-preset-column-width; }
+    Super+f4 { spawn "systemctl" "poweroff"; }
+    Super+F10 { reset-window-height; }
     Super+F11 { fullscreen-window; }
-    // TODO: Super + F12 = border (unsupported)
     Super+Right { focus-column-right; }
     Super+Left { focus-column-left; }
     Super+Up { focus-workspace-up; }
     Super+Down { focus-workspace-down; }
-    Super+WheelScrollUp cooldown-ms=150 { focus-column-right; }
-    Super+WheelScrollDown cooldown-ms=150 { focus-column-left; }
-    Super+Mod5+Right { focus-column-first; }
-    Super+Mod5+Left { focus-column-last; }
-    Super+Ctrl+Mod5+Right { focus-workspace 10; }
-    Super+Ctrl+Mod5+Left { focus-workspace 1; }
+    Super+WheelScrollUp { focus-column-right; }
+    Super+WheelScrollDown { focus-column-left; }
+    Super+Ctrl+Right { focus-column-first; }
+    Super+Ctrl+Left { focus-column-last; }
+    Super+Ctrl+Shift+Right { move-column-to-last; }
+    Super+Ctrl+Shift+Left { move-column-to-first; }
     Super+Shift+Right { move-column-right; }
     Super+Shift+Left { move-column-left; }
-    Super+Shift+Up { move-window-to-workspace-up; }
-    Super+Shift+Down { move-window-to-workspace-down; }
-    Super+Ctrl+Right { move-workspace-down; }
-    Super+Ctrl+Left { move-workspace-up; }
+    Super+Shift+Up { move-column-to-workspace-up; }
+    Super+Shift+Down { move-column-to-workspace-down; }
     Super+Ctrl+Up { move-workspace-down; }
     Super+Ctrl+Down { move-workspace-up; }
-    Super+Mod5+Shift+Right { move-column-to-last; }
-    Super+Mod5+Shift+Left { move-column-to-first; }
-    Super+Mod5+Shift+Up { move-window-to-workspace 1; }
-    Super+Mod5+Shift+Down { move-window-to-workspace 10; }
-    Super+Ctrl+Mod5+Up { move-workspace-to-index 1; }
-    Super+Ctrl+Mod5+Down { move-workspace-to-index 10; }
     Super+1 { focus-workspace 1; }
     Super+2 { focus-workspace 2; }
     Super+3 { focus-workspace 3; }
@@ -67,17 +60,18 @@ binds {
     Super+8 { focus-workspace 8; }
     Super+9 { focus-workspace 9; }
     Super+0 { focus-workspace 10; }
-    Super+Shift+1 { move-window-to-workspace 1; }
-    Super+Shift+2 { move-window-to-workspace 2; }
-    Super+Shift+3 { move-window-to-workspace 3; }
-    Super+Shift+4 { move-window-to-workspace 4; }
-    Super+Shift+5 { move-window-to-workspace 5; }
-    Super+Shift+6 { move-window-to-workspace 6; }
-    Super+Shift+7 { move-window-to-workspace 7; }
-    Super+Shift+8 { move-window-to-workspace 8; }
-    Super+Shift+9 { move-window-to-workspace 9; }
-    Super+Shift+0 { move-window-to-workspace 10; }
+    Super+Shift+1 { move-column-to-workspace 1; }
+    Super+Shift+2 { move-column-to-workspace 2; }
+    Super+Shift+3 { move-column-to-workspace 3; }
+    Super+Shift+4 { move-column-to-workspace 4; }
+    Super+Shift+5 { move-column-to-workspace 5; }
+    Super+Shift+6 { move-column-to-workspace 6; }
+    Super+Shift+7 { move-column-to-workspace 7; }
+    Super+Shift+8 { move-column-to-workspace 8; }
+    Super+Shift+9 { move-column-to-workspace 9; }
+    Super+Shift+0 { move-column-to-workspace 10; }
+    Print { screenshot-screen; }
     Shift+Print { screenshot-window; }
-    Ctrl+Print { screenshot; }
-    Alt+Print { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
+    Ctrl+Print { spawn-sh "geometry=\"$(slurp)\" && [ -n \"$geometry\" ] && { mkdir -p \"$HOME/screenshots\"; grim -g \"$geometry\" - | tee \"$HOME/screenshots/$(date +%d-%m-%y_%H-%M-%S).png\" | wl-copy --type image/png; }"; }
+    Alt+Print { spawn-sh "grim -g \"$(slurp)\" - | tesseract stdin stdout 2>/dev/null | wl-copy"; }
 }

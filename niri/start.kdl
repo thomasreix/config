@@ -1,0 +1,1 @@
+spawn-sh-at-startup "exec \"$HOME/.cargo/bin/nirinit\" --save-interval 5"

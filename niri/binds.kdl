@@ -1,5 +1,3 @@
-// Generated from ~/.config/binds. Do not edit directly.
-
 binds {
     Super+A { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://wiki.archlinux.org/title/Main_page"; }
     Super+Shift+A { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://aternos.org/server"; }
@@ -26,7 +24,7 @@ binds {
     Super+W { spawn "librewolf"; }
     Super+Y { spawn-sh "website() {\n    url=$1\n\n    if niri msg -j focused-window 2>/dev/null | grep -Eiq '\"app_id\"[[:space:]]*:[[:space:]]*\"[^\"]*librewolf'; then\n        librewolf --new-tab \"$url\"\n    else\n        librewolf --new-window \"$url\"\n    fi\n}; website https://www.youtube.com"; }
     Super+BackSpace { close-window; }
-    Super+grave { toggle-overview; }
+    Super+Grave { toggle-overview; }
     Super+Return { spawn "foot"; }
     Super+F1 { quit skip-confirmation=true; }
     Super+F2 { spawn "systemctl" "suspend"; }

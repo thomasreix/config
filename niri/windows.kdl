@@ -3,3 +3,8 @@ gestures {
         off
     }
 }
+
+window-rule {
+    match app-id=r#"(?i)librewolf"#
+    clip-to-geometry true
+}

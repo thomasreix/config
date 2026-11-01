@@ -101,7 +101,7 @@ function parse_command() {
     local -A commands=(
         ["border"]=""
         ["close-window"]="close-window"
-        ["fullscreen"]="fullscreen-window"
+        ["fullscreen"]="switch-preset-column-width"
         ["move-window-first"]="move-column-to-first"
         ["move-window-last"]="move-column-to-last"
         ["move-window-next"]="move-column-right"

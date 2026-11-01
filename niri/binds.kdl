@@ -33,7 +33,7 @@ binds {
     Super+F3 { spawn "systemctl" "reboot"; }
     Super+f4 { spawn "systemctl" "poweroff"; }
     Super+F10 { reset-window-height; }
-    Super+F11 { fullscreen-window; }
+    Super+F11 { switch-preset-column-width; }
     Super+Right { focus-column-right; }
     Super+Left { focus-column-left; }
     Super+Up { focus-workspace-up; }

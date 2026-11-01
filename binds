@@ -36,13 +36,16 @@ Super + f4 = shutdown
 
 Super + F10 = resize
 Super + F11 = fullscreen
+Super + F12 = float
 
 Super + Right = window-next
 Super + Left = window-prev
 Super + Up = workspace-prev
 Super + Down = workspace-next
-Super + ScrollUp = window-next
-Super + ScrollDown = window-prev
+Super + Shift + ScrollUp = window-next
+Super + Shift + ScrollDown = window-prev
+Super + ScrollUp = workspace-prev
+Super + ScrollDown = workspace-next
 
 Super + Ctrl + Right = window-first
 Super + Ctrl + Left = window-last

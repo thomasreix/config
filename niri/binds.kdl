@@ -34,12 +34,15 @@ binds {
     Super+f4 { spawn "systemctl" "poweroff"; }
     Super+F10 { reset-window-height; }
     Super+F11 { switch-preset-column-width; }
+    Super+F12 { toggle-window-floating; }
     Super+Right { focus-column-right; }
     Super+Left { focus-column-left; }
     Super+Up { focus-workspace-up; }
     Super+Down { focus-workspace-down; }
-    Super+WheelScrollUp { focus-column-right; }
-    Super+WheelScrollDown { focus-column-left; }
+    Super+Shift+WheelScrollUp { focus-column-right; }
+    Super+Shift+WheelScrollDown { focus-column-left; }
+    Super+WheelScrollUp { focus-workspace-up; }
+    Super+WheelScrollDown { focus-workspace-down; }
     Super+Ctrl+Right { focus-column-first; }
     Super+Ctrl+Left { focus-column-last; }
     Super+Ctrl+Shift+Right { move-column-to-last; }

@@ -30,7 +30,7 @@ c() {
     done
 
     if grep -q 'raylib.h' "$file"; then
-        cc "$file" -o "$output" $(pkg-config --cflags --libs raylib) || return
+        cc "$file" -o "$output" $(pkg-config --cflags --libs raylib) -lm || return
     else
         cc "$file" -o "$output" || return
     fi

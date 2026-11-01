@@ -3,7 +3,7 @@ set -euo pipefail
 
 CONFIG="$HOME/.config"
 SOURCE="$CONFIG/binds"
-OUTPUT="$CONFIG/niri/binds.kdl"
+OUTPUT="$CONFIG/niri/generated.kdl"
 
 HELPER="$HOME/.local/bin/librewolf-open"
 

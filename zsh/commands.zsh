@@ -6,7 +6,7 @@ push() {
 
 binds() {
 	micro ~/.config/binds &&
-	~/.config/niri/config.sh
+	~/.config/niri/generate.sh
 }
 
 c() {

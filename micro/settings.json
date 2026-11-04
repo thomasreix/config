@@ -1,4 +1,0 @@
-{
-    "colorscheme": "nord-16",
-    "lsp.server": "c=clangd,c++=clangd"
-}

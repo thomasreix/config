@@ -1,8 +1,0 @@
-color-link default "#ffffff,#0f0f0f"
-color-link constant "#fab387"
-color-link type "#89b4fa"
-color-link statement "#cba6f7"
-color-link symbol "#89b4fa"
-color-link comment "#6f6f6f"
-color-link constant.string "#a6e3a1"
-color-link identifier "#ffffff"

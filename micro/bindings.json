@@ -1,4 +1,1 @@
-{
-    "Ctrl-r": "command:lsp rename",
-    "Alt-r": "ToggleRuler"
-}
+{}

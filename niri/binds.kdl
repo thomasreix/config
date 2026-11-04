@@ -13,7 +13,10 @@ binds {
     Super+F11 { maximize-column; }
     Super+F12 { expand-column-to-available-width; }
 
+	Super+Alt+G { spawn-sh "~/.local/bin/librewolf-open https://github.com" ; }
+	Super+L { spawn-sh "~/.local/bin/librewolf-open https://mon.lyceeconnecte.fr" ; }
 	Super+M { spawn "prismlauncher"; }
+	Super+P { spawn-sh "~/.local/bin/librewolf-open https://0332846p.index-education.net/pronote/eleve.html" ; }
 	Super+S { spawn "steam"; }
 	Super+W { spawn "librewolf"; }
     

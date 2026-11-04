@@ -5,7 +5,7 @@ hotkey-overlay {
 }
 
 layout {
-    gaps 0
+    gaps 4
     center-focused-column "never"
 
     preset-column-widths {
@@ -17,8 +17,7 @@ layout {
     background-color "#0f0f0f"
 
     focus-ring {
-        off
-        width 0
+        width 4
         active-color "#ef934d"
         inactive-color "#0f0f0f"
     }
@@ -35,10 +34,10 @@ overview {
     backdrop-color "#0f0f0f"
 
     workspace-shadow {
-        softness 0
+        softness 1000
         spread 8
         offset x=0 y=0
-        color "#ef934d"
+        color "#ffffff"
     }
 }
 

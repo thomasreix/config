@@ -11,8 +11,7 @@
 !/yay/
 !/zsh/
 !/clang-format
-!/binds
-!/scheme
+
 
 # Track this gitignore file itself
 !.gitignore

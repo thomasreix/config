@@ -14,12 +14,15 @@ binds {
     Super+F12 { expand-column-to-available-width; }
 
 	Super+A { spawn-sh "~/.local/bin/librewolf-open https://aur.archlinux.org/" ; }
+	Super+G { spawn-sh "~/.local/bin/librewolf-open https://mail.google.com/mail/" ; }
 	Super+Shift+G { spawn "gimp"; }
 	Super+Alt+G { spawn-sh "~/.local/bin/librewolf-open https://github.com" ; }
 	Super+L { spawn-sh "~/.local/bin/librewolf-open https://mon.lyceeconnecte.fr" ; }
 	Super+M { spawn "prismlauncher"; }
 	Super+P { spawn-sh "~/.local/bin/librewolf-open https://0332846p.index-education.net/pronote/eleve.html" ; }
+	Super+Shift+P { spawn-sh "~/.local/bin/librewolf-open https://mail.proton.me/u/2/inbox#category=primary" ; }
 	Super+S { spawn "steam"; }
+	Super+V { spawn "code"; }
 	Super+W { spawn "librewolf"; }
 	Super+Y { spawn-sh "~/.local/bin/librewolf-open https://www.youtube.com/" ; }
     

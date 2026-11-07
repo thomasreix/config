@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+url=$1
+
+app_id=$(
+    niri msg --json focused-window 2>/dev/null |
+        python3 -c '
+import json
+import sys
+
+try:
+    data = json.load(sys.stdin)
+    print(data.get("app_id") or "")
+except (json.JSONDecodeError, AttributeError, TypeError):
+    print("")
+'
+) || app_id=""
+
+if [[ "${app_id,,}" == *librewolf* ]]; then
+    exec librewolf --new-tab "$url"
+else
+    exec librewolf --new-window "$url"
+fi
